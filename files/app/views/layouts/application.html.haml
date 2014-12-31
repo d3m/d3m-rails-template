@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title App
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %meta{content: "", name: "keywords"}/
+    %meta{content: "", name: "copyright"}/
+    %meta{content: "", name: "description"}/
+    = csrf_meta_tags
+    /[if lt IE 9]
+      %script{src:"http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    = favicon_link_tag asset_path('favicon.ico'), :rel => 'shortcut icon'
+  %body{id: "#{yield(:body_id)}"}
+    #wrapper
+      #content
+        =# bootstrap_flash
+        = yield
